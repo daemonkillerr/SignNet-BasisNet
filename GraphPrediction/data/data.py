@@ -3,6 +3,7 @@
 """
 
 from data.molecules import MoleculeDataset
+from dgl.data import ZINCDataset
 
 def LoadData(DATASET_NAME):
     """
@@ -13,4 +14,4 @@ def LoadData(DATASET_NAME):
     
     # handling for (ZINC) molecule dataset
     if DATASET_NAME == 'ZINC' or DATASET_NAME == 'ZINC-full':
-        return MoleculeDataset(DATASET_NAME)
+        return ZINCDataset()
