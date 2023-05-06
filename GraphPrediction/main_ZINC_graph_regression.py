@@ -399,7 +399,7 @@ def main():
 
     if MODEL_NAME == 'PNA':
         D = torch.cat([torch.sparse.sum(g.adjacency_matrix(transpose=True), dim=-1).to_dense() for g in
-                       dataset.train.graph_lists])
+                       dataset(mode="train").graph_lists])
         net_params['avg_d'] = dict(lin=torch.mean(D),
                                    exp=torch.mean(torch.exp(torch.div(1, D)) - 1),
                                    log=torch.mean(torch.log(D + 1)))
