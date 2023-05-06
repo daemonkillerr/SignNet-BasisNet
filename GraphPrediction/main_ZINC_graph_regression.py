@@ -394,8 +394,8 @@ def main():
         
     
     # ZINC
-    net_params['num_atom_type'] = dataset.num_atom_type
-    net_params['num_bond_type'] = dataset.num_bond_type
+    net_params['num_atom_type'] = dataset.num_atom_types
+    net_params['num_bond_type'] = dataset.num_bond_types
 
     if MODEL_NAME == 'PNA':
         D = torch.cat([torch.sparse.sum(g.adjacency_matrix(transpose=True), dim=-1).to_dense() for g in
